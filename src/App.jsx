@@ -1,8 +1,14 @@
+import Canvas from "./canvas/index.jsx";
+import Home from "./pages/Home.jsx";
+import Customizer from "./pages/Customizer.jsx";
+
 function App() {
   return (
-    <div>
-        <h1 className="head-text">React with three.js</h1>
-    </div>
+    <main className="app transition-all ease-in">
+        <Home/>
+        <Canvas/>
+        <Customizer/>
+    </main>
   )
 }
 export default App
