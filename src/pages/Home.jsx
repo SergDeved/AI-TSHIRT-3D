@@ -26,13 +26,19 @@ const Home = () => {
                         />
                     </motion.header>
 
-                    <motion.div className="home-content" {...headContainerAnimation}>
+                    <motion.div
+                        className="home-content"
+                        {...headContainerAnimation}
+                    >
                         <h1 className="head-text">
                             LETS <br className="xl:block hidden"/> PROGRAM
                         </h1>
                     </motion.div>
 
-                    <motion.div {...headContentAnimation} className="flex flex-col gap-5">
+                    <motion.div
+                        {...headContentAnimation}
+                        className="flex flex-col gap-5"
+                    >
                         <p className="max-w-md font-normal text-gray-600">
                             Crea tu unica y exclusiva camiseta con nuestra nueva app de customización 3D.
                         </p>

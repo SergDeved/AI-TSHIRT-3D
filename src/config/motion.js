@@ -52,6 +52,7 @@ export const headTextAnimation = {
 export const headContentAnimation = {
   initial: { y: 100, opacity: 0 },
   animate: { y: 0, opacity: 1 },
+    exit: {x: -100, opacity: 0, transition: {...transition, delay: 0}},
   transition: {
     type: "spring",
     damping: 7,
