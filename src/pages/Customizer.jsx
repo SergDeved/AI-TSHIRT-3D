@@ -28,16 +28,59 @@ const Customizer = () => {
 
     //mostrar contenido de cada tab activo
     const generateTabContent = () => {
-switch (activeEditorTab){
-    case "colorpicker":
-        return <ColorPicker/>
-    case "filepicker":
-        return <FilePicker/>
-    case "aipicker":
-        return <AIPicker/>
-    default:
-        return null;
-}
+        switch (activeEditorTab) {
+            case "colorpicker":
+                return <ColorPicker/>
+            case "filepicker":
+                return <FilePicker
+                    file={file}
+                    setFile={setFile}
+                    readFile={readFile}
+                />
+            case "aipicker":
+                return <AIPicker/>
+            default:
+                return null;
+        }
+    }
+
+    const handleDecals = (type, result) => {
+        const decalType = DecalTypes[type];
+
+        state[decalType.stateProperty] = result;
+
+        if (!activeFilterTab[decalType.filterTab]) {
+            handleActiveFilterTab(decalType.filterTab)
+        }
+    }
+
+    const handleActiveFilterTab = (tabName) => {
+        switch (tabName) {
+            case "logoShirt":
+                state.isLogoTexture = !activeFilterTab[tabName];
+                break;
+            case "stylishShirt":
+                state.isFullTexture = !activeFilterTab[tabName];
+            default:
+                state.isLogoTexture = true;
+                state.isFullTexture = false;
+        }
+
+        setActiveFilterTab((prevState) => {
+            return {
+                ...prevState,
+                [tabName]: !prevState[tabName]
+            }
+        })
+
+    }
+
+    const readFile = (type) => {
+        reader(file)
+            .then((result) => {
+                handleDecals(type, result);
+                setActiveEditorTab("");
+            })
     }
 
     return (
@@ -55,7 +98,9 @@ switch (activeEditorTab){
                                     <Tab
                                         key={tab.name}
                                         tab={tab}
-                                        handleClick={() => {setActiveEditorTab(tab.name)}}
+                                        handleClick={() => {
+                                            setActiveEditorTab(tab.name)
+                                        }}
                                     >
 
                                     </Tab>
@@ -66,28 +111,28 @@ switch (activeEditorTab){
                         </div>
                     </motion.div>
                     <motion.div
-                    className="absolute z-10 top-5 right-5"
-                    {...fadeAnimation}
+                        className="absolute z-10 top-5 right-5"
+                        {...fadeAnimation}
                     >
-                    <CustomButton
-                    type="filled"
-                    title="Go Back"
-                    handleClick={() => state.intro = true}
-                    customStyles="w-fit px-2 py-2.5 font-bold text-sm"
-                    ></CustomButton>
+                        <CustomButton
+                            type="filled"
+                            title="Go Back"
+                            handleClick={() => state.intro = true}
+                            customStyles="w-fit px-2 py-2.5 font-bold text-sm"
+                        ></CustomButton>
                     </motion.div>
 
                     <motion.div
-                    className="filtertabs-container"
-                    {...slideAnimation('up')}
+                        className="filtertabs-container"
+                        {...slideAnimation('up')}
                     >
                         {FilterTabs.map((tab) => (
                             <Tab
                                 key={tab.name}
                                 tab={tab}
                                 isFilterTab
-                                isActiveTab=""
-                                handleClick={() => {}}
+                                isActiveTab={activeFilterTab[tab.name]}
+                                handleClick={() => handleActiveFilterTab(tab.name)}
                             >
 
                             </Tab>

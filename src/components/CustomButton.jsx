@@ -1,6 +1,9 @@
 import react from "react";
 import state from "../store/index.js";
 import {useSnapshot} from "valtio";
+import {getContrastingColor} from "../config/helpers.js";
+
+
 // eslint-disable-next-line react/prop-types
 const CustomButton = ({type, title, customStyles, handleClick}) =>
 {
@@ -9,7 +12,13 @@ const CustomButton = ({type, title, customStyles, handleClick}) =>
         if (type === 'filled') {
             return{
                 backgroundColor: snap.color,
-                color: '#fff'
+                color: getContrastingColor(snap.color)
+            }
+        } else if(type === "outline"){
+            return {
+                borderWidth: '1px',
+                borderColor: snap.color,
+                color: snap.color
             }
         }
     }
