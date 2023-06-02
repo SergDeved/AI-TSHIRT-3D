@@ -17,7 +17,7 @@ const Customizer = () => {
 
     const [prompt, setPrompt] = useState('');
 
-    const [generatingImg, setGeneratingImg] = useState('false');
+    const [generatingImg, setGeneratingImg] = useState(false);
 
     const [activeEditorTab, setActiveEditorTab] = useState("");
     const [activeFilterTab, setActiveFilterTab] = useState({
@@ -26,11 +26,12 @@ const Customizer = () => {
     })
 
 
+
     //mostrar contenido de cada tab activo
     const generateTabContent = () => {
         switch (activeEditorTab) {
             case "colorpicker":
-                return <ColorPicker/>
+                return <ColorPicker />
             case "filepicker":
                 return <FilePicker
                     file={file}
@@ -39,34 +40,49 @@ const Customizer = () => {
                 />
             case "aipicker":
                 return <AIPicker
-                prompt={prompt}
-                setPrompt={setPrompt}
-                generatingImg={generatingImg}
-                handleSubmit={handleSubmit}
+                    prompt={prompt}
+                    setPrompt={setPrompt}
+                    generatingImg={generatingImg}
+                    handleSubmit={handleSubmit}
                 />
             default:
                 return null;
         }
     }
 
-    const handleSubmit = async (type) =>{
-        if (!prompt) return alert("Please enter a prompt");
+    const handleSubmit = async (type) => {
+        if(!prompt) return alert("Please enter a prompt");
 
-        try{
-//llamar al backend para imagen generada por ia
-        }catch (error){
+        try {
+            setGeneratingImg(true);
+
+            const response = await fetch('http://localhost:8080/api/v1/dalle', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    prompt,
+                })
+            })
+
+            const data = await response.json();
+
+            handleDecals(type, `data:image/png;base64,${data.photo}`)
+        } catch (error) {
             alert(error)
-        }finally {
+        } finally {
             setGeneratingImg(false);
             setActiveEditorTab("");
         }
     }
+
     const handleDecals = (type, result) => {
         const decalType = DecalTypes[type];
 
         state[decalType.stateProperty] = result;
 
-        if (!activeFilterTab[decalType.filterTab]) {
+        if(!activeFilterTab[decalType.filterTab]) {
             handleActiveFilterTab(decalType.filterTab)
         }
     }
@@ -78,6 +94,7 @@ const Customizer = () => {
                 break;
             case "stylishShirt":
                 state.isFullTexture = !activeFilterTab[tabName];
+                break;
             default:
                 state.isLogoTexture = true;
                 state.isFullTexture = false;
@@ -89,7 +106,6 @@ const Customizer = () => {
                 [tabName]: !prevState[tabName]
             }
         })
-
     }
 
     const readFile = (type) => {
