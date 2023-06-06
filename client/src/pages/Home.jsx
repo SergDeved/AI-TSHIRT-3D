@@ -18,20 +18,12 @@ const Home = () => {
         <AnimatePresence>
             {snap.intro && (
                 <motion.section className="home" {...slideAnimation('left')}>
-                    <motion.header {...slideAnimation("down")}>
-                        <img
-                            src='./threejs.png'
-                            alt='logo'
-                            className="w-8 h-8 object-contain"
-                        />
-                    </motion.header>
-
                     <motion.div
                         className="home-content"
                         {...headContainerAnimation}
                     >
                         <h1 className="head-text">
-                            LETS <br className="xl:block hidden"/> PROGRAM
+                           DESIGN <br className="xl:block hidden"/> IT!
                         </h1>
                     </motion.div>
 
@@ -40,8 +32,7 @@ const Home = () => {
                         className="flex flex-col gap-5"
                     >
                         <p className="max-w-md font-normal text-gray-600">
-                            Crea tu unica y exclusiva camiseta con nuestra nueva app de customización 3D.
-                        </p>
+                            Create your unique and exclusive t-shirt with our new 3D customization app.                        </p>
 
                         <CustomButton
                             type="filled"
