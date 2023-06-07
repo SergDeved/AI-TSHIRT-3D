@@ -60,7 +60,7 @@ html {
 }
 
 .tab-btn {
-  @apply w-14 h-14 flex justify-center items-center cursor-pointer select-none;
+  @apply w-16 h-16 flex justify-center items-center cursor-pointer select-none;
 }
 
 .glassmorphism {
