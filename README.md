@@ -4,11 +4,16 @@ SPA Web application to create a unique and special t-shirt design, you can desig
 t-shirt as well. The important thing is that through the OPENAI API it allows you to generate logos and patterns
 according to the description that you send it.
 
+-Customizer View
+
 ![Captura de pantalla 1](/client/public/Captura.png)
-Customizer View
+
+
+-AI generated logo
 
 ![Captura de pantalla 2](/client/public/AI_LOGO.png)
-AI generated logo
+
+
 
 
 ## Used Technology
