@@ -6,12 +6,11 @@ according to the description that you send it.
 
 -Customizer View
 
-![Captura de pantalla 1](/client/public/Captura.png)
+[![Captura.png](https://i.postimg.cc/XJtYNKc5/Captura.png)](https://postimg.cc/S27hDMPQ)
 
 
 -AI generated logo
 
-![Captura de pantalla 2](/client/public/AI_LOGO.png)
 [![AI-LOGO.png](https://i.postimg.cc/pLr9Xcgv/AI-LOGO.png)](https://postimg.cc/cvq1Fhxk)
 
 
