@@ -6,12 +6,12 @@ according to the description that you send it.
 
 -Customizer View
 
-[![Captura.png](https://i.postimg.cc/XJtYNKc5/Captura.png)](https://postimg.cc/S27hDMPQ)
+[![3-DSHIRTVIEW.png](https://i.postimg.cc/jjpjtQh7/3-DSHIRTVIEW.png)](https://postimg.cc/gwKpKhQz)
 
 
 -AI generated logo
 
-[![AI-LOGO.png](https://i.postimg.cc/pLr9Xcgv/AI-LOGO.png)](https://postimg.cc/cvq1Fhxk)
+[![3-DSHIRTAILOGO.png](https://i.postimg.cc/SK2KBtc4/3-DSHIRTAILOGO.png)](https://postimg.cc/XZW3FL21)
 
 
 
