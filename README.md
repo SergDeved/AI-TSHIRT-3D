@@ -12,6 +12,7 @@ according to the description that you send it.
 -AI generated logo
 
 ![Captura de pantalla 2](/client/public/AI_LOGO.png)
+[![AI-LOGO.png](https://i.postimg.cc/pLr9Xcgv/AI-LOGO.png)](https://postimg.cc/cvq1Fhxk)
 
 
 
